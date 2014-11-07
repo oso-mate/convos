@@ -26,4 +26,10 @@ describe ConvosController do
     end
   end
 
+  describe "DELETE /convos/:convo_id" do
+    it "has a route" do
+      expect(delete: "/convos/999").to route_to controller: "convos", action: "destroy", convo_id: "999"
+    end
+  end
+
 end

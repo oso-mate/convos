@@ -4,18 +4,19 @@
 
 ---
 
-1. [Database](https://github.com/oso-mate/convos/blob/master/README.md#database)
-  1. [Entities](https://github.com/oso-mate/convos/blob/master/README.md#entities)
-  2. [Relationships](https://github.com/oso-mate/convos/blob/master/README.md#relationships)
-2. [API](https://github.com/oso-mate/convos/blob/master/README.md#api)
-  1. [Users](https://github.com/oso-mate/convos/blob/master/README.md#users)
-    1. [POST /users](https://github.com/oso-mate/convos/blob/master/README.md#post-apiusers)
-    2. [GET /users/:user_name](https://github.com/oso-mate/convos/blob/master/README.md#get-apiusersuser_name)
-  - [Convos](https://github.com/oso-mate/convos/blob/master/README.md#convos-1)
-    - [POST /convos](https://github.com/oso-mate/convos/blob/master/README.md#post-apiconvos)
-    - [PATCH /convos/:convo_id](https://github.com/oso-mate/convos/blob/master/README.md#patch-apiconvos)
-    - [GET /convos](https://github.com/oso-mate/convos/blob/master/README.md#get-apiconvos)
-    - [GET /convos/:convo_id](https://github.com/oso-mate/convos/blob/master/README.md#get-apiconvosconvo_id)
+1. [Database](https://github.com/oso-mate/convos#database)
+  1. [Entities](https://github.com/oso-mate/convos#entities)
+  2. [Relationships](https://github.com/oso-mate/convos#relationships)
+2. [API](https://github.com/oso-mate/convos/blob#api)
+  1. [Users](https://github.com/oso-mate/convos#users)
+    1. [POST /users](https://github.com/oso-mate/convos#post-users)
+    2. [GET /users/:user_name](https://github.com/oso-mate/convos#get-usersuser_name)
+  - [Convos](https://github.com/oso-mate/convos#convos-1)
+    - [POST /convos](https://github.com/oso-mate/convos#post-convos)
+    - [PATCH /convos/:convo_id](https://github.com/oso-mate/convos#patch-convos)
+    - [GET /convos](https://github.com/oso-mate/convos#get-convos)
+    - [GET /convos/:convo_id](https://github.com/oso-mate/convos#get-convosconvo_id)
+    - [DELETE /convos/:convo_id](https://github.com/oso-mate#delete-convosconvo_id)
 
 ---
 
@@ -440,3 +441,19 @@ Responds with an index list of convos based in the params specified (one require
   }
   ````
   
+##### *DELETE /convos/:convo_id*
+
+- **200.** The Convo was destroyed.
+
+  > DELETE /convos/999
+
+- **404.** The Convo was not found.
+
+  > DELETE /convos/1999
+  
+  ````json
+  RESPONSE
+  {
+    "error": "Convo not found"
+  }
+
