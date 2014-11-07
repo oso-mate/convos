@@ -6,4 +6,6 @@ class Convo < ActiveRecord::Base
   validates :body, presence: true
   validates :state, inclusion: { in: %w(new read) }
 
+  has_many :thread_convos, foreign_key: :thread_convo_id, class_name: Convo
+
 end
