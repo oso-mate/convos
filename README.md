@@ -358,3 +358,25 @@ Responds with an index list of convos based in the params specified (one require
     ]
   }
   ````
+
+- **404.** The Convos were not found.
+
+  > GET /api/convos/?user_id=8 (For the User given as recipient and sender)
+  
+  ````json
+  RESPONSE
+  {
+    "error": "Convos not found"
+  }
+  ````
+  
+- **400.** The Convos cannot be retrieved without a required user identifier
+
+  > GET /api/convos/?state=new (New Convos without passing a user identifier: user_id, sender_user_id, recipient_user_id)
+  
+  ````json
+  RESPONSE
+  {
+    "error": "Parameter missing"
+  }
+  ````
