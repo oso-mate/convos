@@ -386,7 +386,7 @@ Responds with an index list of convos based in the params specified (one require
   }
   ````
 
-- **404.** The Convos were not found.
+- **404.** The Convos were not found for that User.
 
   > GET /convos/?user_id=8 (For the User given as recipient and sender)
   
