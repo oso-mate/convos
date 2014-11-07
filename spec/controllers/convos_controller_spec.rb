@@ -6,6 +6,35 @@ describe ConvosController do
     it "has a route" do
       expect(post: "/convos").to route_to controller: "convos", action: "create"
     end
+
+    context "201" do
+      let!(:convo) do
+        {
+          sender_user_id: 11,
+          recipient_user_id: 12,
+          subject_line: "I have an idea!",
+          body: "Meet me downstairs, let's get some wood!"
+        }
+      end
+
+      before do
+        post :create, convo: convo
+      end
+
+      specify do
+        expect(response.code).to eq "201"
+      end
+    end
+
+    context "400" do
+      before do
+        post :create, {}
+      end
+
+      specify do
+        expect(response.code).to eq "400"
+      end
+    end
   end
 
   describe "PATCH /convos/:convo_id" do
