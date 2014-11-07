@@ -4,6 +4,21 @@
 
 ---
 
+1. [Database](https://github.com/oso-mate/convos/blob/master/README.md#database)
+  1. [Entities](https://github.com/oso-mate/convos/blob/master/README.md#entities)
+  2. [Relationships](https://github.com/oso-mate/convos/blob/master/README.md#relationships)
+2. [API](https://github.com/oso-mate/convos/blob/master/README.md#api)
+  1. [Users](https://github.com/oso-mate/convos/blob/master/README.md#users)
+    1. [POST /api/users](https://github.com/oso-mate/convos/blob/master/README.md#post-apiusers)
+    2. [GET /api/users/:user_name](https://github.com/oso-mate/convos/blob/master/README.md#get-apiusersuser_name)
+  - [Convos](https://github.com/oso-mate/convos/blob/master/README.md#convos-1)
+    - [POST /api/convos](https://github.com/oso-mate/convos/blob/master/README.md#post-apiconvos)
+    - [PATCH /api/convos/:convo_id](https://github.com/oso-mate/convos/blob/master/README.md#patch-apiconvos)
+    - [GET /api/convos](https://github.com/oso-mate/convos/blob/master/README.md#get-apiconvos)
+    - [GET /api/convos/:convo_id](https://github.com/oso-mate/convos/blob/master/README.md#get-apiconvosconvo_id)
+
+---
+
 ### Database
 
 #### Entities
@@ -179,7 +194,7 @@ This endpoint gets the user given the user_name param passed. It is recommended 
 
 - **400.** The Convo was not created.
 
-  > POST /api/convo
+  > POST /api/convos
   
   ````json
   RESPONSE
@@ -188,7 +203,7 @@ This endpoint gets the user given the user_name param passed. It is recommended 
   }
   ````
   
-##### *PATCH /api/convos*
+##### *PATCH /api/convos/:convo_id*
 
 - **200.** The Convo was updated.
 
@@ -380,3 +395,48 @@ Responds with an index list of convos based in the params specified (one require
     "error": "Parameter missing"
   }
   ````
+
+##### *GET /api/convos/:convo_id*
+
+- **200.** The Convo was found.
+
+  > GET /api/convos/1001
+  
+  ````json
+  RESPONSE
+  {
+    "convo": {
+      "convo_id": 1001,
+      "sender_user_id": 11,
+      "recipient_user_id": 12,
+      "subject_line": "I have an idea!",
+      "body": "Meet me downstairs, let's get some wood!",
+      "state": "read",
+      "created_at": "1888-12-01 13:00:00",
+      "thread_convos": [
+        {
+          "convo_id": 1002,
+          "sender_user_id": 12,
+          "recipient_user_id": 11,
+          "subject_line": "I have an idea!",
+          "body": "Meow."
+          "state": "read"
+          "created_at": "1888-12-01 13:01:00",
+          "updated_at": "1888-12-01 13:02:00"
+        }
+      ]
+    }
+  }
+  ````
+  
+- **404.** The Convo was not found.
+
+  > GET /api/convos/1999
+  
+  ````json
+  RESPONSE
+  {
+    "error": "Convo not found"
+  }
+  ````
+  
