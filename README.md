@@ -219,6 +219,17 @@ This endpoint gets the user given the user_name param passed. It is recommended 
     }
   }
   ````
+
+- **404.** The Convo was not found.
+
+  > PATCH /convos/9999
+  
+  ````json
+  REQUEST
+  { 
+    "error": "Convo not found"
+  }
+  ````
   
 ##### *GET /convos*
 
