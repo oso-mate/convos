@@ -1,0 +1,25 @@
+== README
+
+To get Convos up and running:
+
+* Ruby version
+  - 2.1.2
+
+* System dependencies
+  - RubyGems with Bundler
+  - Postgres
+
+* Configuration
+  - bundle
+
+* Database creation
+  - bundle exec rake db:create
+
+* Database initialization
+  - bundle exec rake db:migrate
+
+* How to run the test suite
+  - bundle exec rspec
+
+* Startup instructions
+  - bundle rails server
