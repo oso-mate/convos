@@ -11,9 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141107013123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "convos", primary_key: "convo_id", force: true do |t|
+    t.integer  "thread_convo_id"
+    t.integer  "sender_user_id",                                null: false
+    t.integer  "recipient_user_id",                             null: false
+    t.string   "subject_line",      limit: 140,                 null: false
+    t.text     "body",                                          null: false
+    t.string   "state",                         default: "new"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "convos", ["thread_convo_id"], name: "index_convos_on_thread_convo_id", using: :btree
+
+  create_table "users", primary_key: "user_id", force: true do |t|
+    t.string   "user_name",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

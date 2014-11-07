@@ -5,3 +5,10 @@ development:
   pool: 5
   username: 
   password: 
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: convos_test
+  pool: 5
+  username: 
+  password: 
